@@ -59,5 +59,15 @@ public class SalesController {
         saleRepo.deleteById(id);
     }
 
+    @GetMapping("/range")
+    public List<SaleEntryEntity> range(@RequestParam String from, @RequestParam String to) {
+        LocalDate f = LocalDate.parse(from);
+        LocalDate t = LocalDate.parse(to);
+
+        LocalDateTime start = f.atStartOfDay();
+        LocalDateTime end = t.plusDays(1).atStartOfDay().minusNanos(1); // inclusive
+
+        return saleService.findBetween(start, end);
+    }
 
 }

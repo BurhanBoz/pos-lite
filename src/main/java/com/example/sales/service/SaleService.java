@@ -14,4 +14,5 @@ public interface SaleService {
     public List<SaleEntryEntity> listToday();
     public DaySummaryDto daySummary(LocalDate date);
     public List<SaleEntryEntity> listForRange(LocalDateTime start, LocalDateTime end);
+    public List<SaleEntryEntity> findBetween(LocalDateTime start, LocalDateTime end);
 }

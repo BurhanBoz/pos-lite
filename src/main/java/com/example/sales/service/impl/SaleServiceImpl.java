@@ -85,4 +85,9 @@ public class SaleServiceImpl implements SaleService {
     public List<SaleEntryEntity> listForRange(LocalDateTime start, LocalDateTime end) {
         return saleRepo.findForRange(start, end);
     }
+
+    @Override
+    public List<SaleEntryEntity> findBetween(LocalDateTime start, LocalDateTime end) {
+        return saleRepo.findForRange(start, end);
+    }
 }
